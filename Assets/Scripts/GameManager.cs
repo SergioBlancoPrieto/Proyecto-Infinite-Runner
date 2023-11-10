@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
 	public Canvas menuCanvas;
 	public Canvas gameCanvas;
 	public Canvas gameOverCanvas;
+	[SerializeField] private GameObject _pauseButton;
+	[SerializeField] private GameObject _pauseMenu;
 
 	private int collectObject;
 
@@ -89,6 +91,8 @@ public class GameManager : MonoBehaviour
 			gameCanvas.GetComponent<AudioSource>().Stop();
 			gameOverCanvas.enabled = false;
 			gameOverCanvas.GetComponent<AudioSource>().Stop();
+			_pauseButton.SetActive(false);
+			_pauseMenu.SetActive(false);
             //La escena de Unity deberá mostrar el menú principal
             currentGameState = GameState.menu;
         }
@@ -100,8 +104,11 @@ public class GameManager : MonoBehaviour
 				gameCanvas.GetComponent<AudioSource>().Play();
 				gameOverCanvas.enabled = false;
 				gameOverCanvas.GetComponent<AudioSource>().Stop();
+				_pauseButton.SetActive(true);
+				_pauseMenu.SetActive(false);
                 //La escena de Unity deberá configurarse para mostrar el juego en si
                 currentGameState = GameState.inTheGame;
+                Time.timeScale = 1f;
             }
             else if (newGameState == GameState.gameOver)
             {
@@ -111,6 +118,8 @@ public class GameManager : MonoBehaviour
 				gameCanvas.GetComponent<AudioSource>().Stop();
 				gameOverCanvas.enabled = true;
 				gameOverCanvas.GetComponent<AudioSource>().Play();
+				_pauseButton.SetActive(false);
+				_pauseMenu.SetActive(false);
                 //La escena de Unity deberá mostrar el menú de fin de partida
                 currentGameState = GameState.gameOver;
             }
