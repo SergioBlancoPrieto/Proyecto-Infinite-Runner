@@ -20,6 +20,7 @@ public class Item : MonoBehaviour
 		GetComponent<SpriteRenderer>().enabled = true;
 		GetComponent<CircleCollider2D>().enabled = true;
 		isCollected = false;
+        
 	}
 
 	void Hide()
