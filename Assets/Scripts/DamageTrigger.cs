@@ -9,8 +9,8 @@ public class DamageTrigger : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            other.gameObject.GetComponent<CombatPlayer>().DoBounce(transform.position);
             other.gameObject.GetComponent<PlayerController>().DamagePlayer();
-            other.gameObject.GetComponent<CombatPlayer>().DoBounce(other.GetContact(0).normal);
         }
     }
     
@@ -18,8 +18,8 @@ public class DamageTrigger : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            other.gameObject.GetComponent<PlayerController>().DamagePlayer();
             other.gameObject.GetComponent<CombatPlayer>().DoBounce(transform.position);
+            other.gameObject.GetComponent<PlayerController>().DamagePlayer();
         }
     }
 }

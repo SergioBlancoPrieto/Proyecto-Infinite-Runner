@@ -70,7 +70,10 @@ public class PlayerController : MonoBehaviour
 
 	public void Bounce(Vector2 pointHit)
 	{
-		_rigidbody2d.velocity = new Vector2(-speedBounce.x * pointHit.x, speedBounce.y);
+        if (invulnerability == false)
+        {
+		    _rigidbody2d.velocity = new Vector2(-Mathf.Abs(speedBounce.x * (pointHit.x - this.transform.position.x)), speedBounce.y);
+        }
 	}
     
     private void Awake()
@@ -181,7 +184,7 @@ public class PlayerController : MonoBehaviour
                 healthPlayer--;
                 invulnerability = true;
                 Debug.Log("Puntos de vida restantes: " + healthPlayer);
-                Invoke("DelayInvulnerability", 1f);
+                Invoke("DelayInvulnerability", 1.5f);
             }
         }
     }
