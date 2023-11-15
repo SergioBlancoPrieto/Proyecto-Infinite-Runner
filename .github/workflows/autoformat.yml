@@ -20,14 +20,14 @@ jobs:
 
       - name: Check format
         id: check
-        uses: jfversluis/dotnet-format@v2
+        uses: jfversluis/dotnet-format@v1
         with:
           action: "check"
           fail-fast: false
 
       - name: Run format
         if: steps.check.outputs.has-changes == 'true'
-        uses: jfversluis/dotnet-format@v2
+        uses: jfversluis/dotnet-format@v1
         with:
           action: "fix"
           workspace: "MySolution.sln"
