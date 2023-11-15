@@ -1,6 +1,6 @@
 # Proyecto-Infinite-Runner
 Primer proyecto de Desarrollo de Videojuegos.
-Es un 
+Es un infinite side-scroller.  
 
 
 # Desarrolladores
