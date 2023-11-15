@@ -1,18 +1,30 @@
-name: Format check on push
+# This workflow ensures all code being pushed to your repo. is formatted
+name: Auto-Format
+
+# Controls when the action will run. 
 on: push
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   dotnet-format:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2.3.2
 
-      - name: Add dotnet-format problem matcher
-        uses: xt0rted/dotnet-format-problem-matcher@v1
+      - name: Install dotnet-format
+        run: dotnet tool install -g dotnet-format
 
-      - name: Restore dotnet tools
-        uses: xt0rted/dotnet-tool-restore@v1
+      - name: Check format
+        if: "steps.check_folder.outputs.files_exists == 'true'"
+        id: check
+        uses: brmenchl/dotnet-format@v1.0.2
+        with:
+          action: "check"
+          fail-fast: true
 
-      - name: Run dotnet format
-        uses: xt0rted/dotnet-format@v1
-          
+      - name: Run format
+        if: steps.check.outputs.has-changes == 'true'
+        uses: brmenchl/dotnet-format@v1.0.2
+        with:
+          action: "fix"
