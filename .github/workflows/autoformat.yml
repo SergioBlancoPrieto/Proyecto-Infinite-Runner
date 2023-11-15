@@ -20,13 +20,20 @@ jobs:
 
       - name: Check format
         id: check
-        uses: brmenchl/dotnet-format@v1.0.2
+        uses: jfversluis/dotnet-format@v2
         with:
           action: "check"
-          fail-fast: true
+          fail-fast: false
 
       - name: Run format
         if: steps.check.outputs.has-changes == 'true'
-        uses: brmenchl/dotnet-format@v1.0.2
+        uses: jfversluis/dotnet-format@v2
         with:
           action: "fix"
+          workspace: "MySolution.sln"
+
+      - name: Commit
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+            commit_message: Auto code format
+            file_pattern: '*.cs'
