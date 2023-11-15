@@ -13,13 +13,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v2.3.2
+        uses: actions/checkout@v4
 
       - name: Install dotnet-format
         run: dotnet tool install -g dotnet-format
 
       - name: Check format
-        if: "steps.check_folder.outputs.files_exists == 'true'"
         id: check
         uses: brmenchl/dotnet-format@v1.0.2
         with:
