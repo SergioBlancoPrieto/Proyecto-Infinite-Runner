@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     private readonly int _animIDisHited = Animator.StringToHash("isHited");
     private readonly int _animIDisRunning = Animator.StringToHash("isRunning");
     private readonly int _animIDisGrounded = Animator.StringToHash("isGrounded");
+    private readonly int _animIDisFalling = Animator.StringToHash("isFalling");
 
     public static PlayerController sharedInstance;
     public float distanceTravelled = 0;
@@ -110,6 +111,7 @@ public class PlayerController : MonoBehaviour
         //Solo salta si estamos en el estado inTheGame
         if (GameManager.sharedInstance.currentGameState == GameState.inTheGame)
         {
+            _animatorPlayer.SetBool(_animIDisFalling, _rigidbody2d.velocity.y < 0.5f);
             _animatorPlayer.SetBool(_animIDisGrounded, isOnTheFloor());
             if (Input.GetButtonDown("Fire1")) 
             {
