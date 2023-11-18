@@ -16,6 +16,7 @@ public class EnemyScript : MonoBehaviour
     public bool infoFront;
     public bool lookingRight = true;
 
+
     private void Awake()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();

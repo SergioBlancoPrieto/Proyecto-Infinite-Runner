@@ -74,6 +74,7 @@ public class GameManager : MonoBehaviour
         ChangeGameState(GameState.gameOver);
 		LevelGenerator.sharedInstance.RemoveAllTheBlocks();
 		UpdateGameOverCanvas.sharedInstance.SetScorePointsAndCoins();
+		PlayerController.sharedInstance.StopAllCoroutines();
     }
     
     //lo llamamos cuando el jugador decide finalizar y volver a menú principal

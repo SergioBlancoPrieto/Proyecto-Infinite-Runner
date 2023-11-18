@@ -11,6 +11,7 @@ public class DamageTrigger : MonoBehaviour
         {
             other.gameObject.GetComponent<CombatPlayer>().DoBounce(transform.position);
             other.gameObject.GetComponent<PlayerController>().DamagePlayer();
+            this.GetComponent<AudioSource>().Play();
         }
     }
     
@@ -20,6 +21,7 @@ public class DamageTrigger : MonoBehaviour
         {
             other.gameObject.GetComponent<CombatPlayer>().DoBounce(transform.position);
             other.gameObject.GetComponent<PlayerController>().DamagePlayer();
+            this.GetComponent<AudioSource>().Play();
         }
     }
 }
