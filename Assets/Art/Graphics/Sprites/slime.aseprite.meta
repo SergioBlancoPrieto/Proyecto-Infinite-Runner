@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: df9a1fd8aed255642a4b152e1894ba94
+guid: f180080ad4c95dd4fa933b0dcce53509
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -53,9 +53,9 @@ ScriptedImporter:
     filterMode: 0
     aniso: 1
     mipBias: 0
-    wrapU: 0
-    wrapV: 0
-    wrapW: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
     normalMap: 0
     textureFormat: 0
     maxTextureSize: 0
@@ -75,7 +75,7 @@ ScriptedImporter:
     importHiddenLayers: 0
     layerImportMode: 1
     defaultPivotSpace: 0
-    defaultPivotAlignment: 0
+    defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
     spritePadding: 0
     generateModelPrefab: 1
@@ -87,7 +87,7 @@ ScriptedImporter:
     importHiddenLayers: 0
     layerImportMode: 1
     defaultPivotSpace: 0
-    defaultPivotAlignment: 0
+    defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
     spritePadding: 0
     generateModelPrefab: 1
@@ -95,7 +95,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638359340497846579
+  platformSettingsDirtyTick: 638359341152923260
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -119,18 +119,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: lava
+  - name: slime
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 32
-      height: 64
-    spriteID: b6bb909b55bdb4f48808a6ecabf9cc11
+      width: 24
+      height: 17
+    spriteID: 574ca50aecfd71045b5af3a9c54ada3c
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -139,18 +139,18 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: lava_Frame_1
+  - name: slime_Frame_1
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
-      y: 76
-      width: 32
-      height: 64
-    spriteID: fe97f5c674183a64c9727cfe9fec008e
+      y: 29
+      width: 24
+      height: 17
+    spriteID: c86d4758477289947b2f2b480cc7e32c
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -158,164 +158,32 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 76}
-  - name: lava_Frame_2
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 148
-      width: 32
-      height: 64
-    spriteID: 893282f108284f5409c1c96aad0da6c9
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 148}
-  - name: lava_Frame_3
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 44
-      y: 4
-      width: 32
-      height: 64
-    spriteID: 81f4925c1317a4e43a526c130cb8f09b
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 44, y: 4}
-  - name: lava_Frame_4
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 44
-      y: 76
-      width: 32
-      height: 64
-    spriteID: f94ab17e43ce118448586f23cb0d541a
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 44, y: 76}
-  - name: lava_Frame_5
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 44
-      y: 148
-      width: 32
-      height: 64
-    spriteID: d94e265eaa90e244285756a0fe2da771
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 44, y: 148}
-  spriteSheetImportData:
-  - name: lava_0
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 4
-      width: 32
-      height: 64
-    spriteID: 8d29f22a690e3e84fa43f81da354fc6a
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
+    uvTransform: {x: 4, y: 29}
+  spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 1040124120
-    name: lava
+    guid: -1337320074
+    name: slime
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: lava_Frame_0
+    - name: slime_Frame_0
       frameIndex: 0
       cellRect:
-        x: 0
+        x: 4
         y: 0
-        width: 32
-        height: 64
-      spriteId: b6bb909b55bdb4f48808a6ecabf9cc11
-    - name: lava_Frame_1
+        width: 24
+        height: 17
+      spriteId: 574ca50aecfd71045b5af3a9c54ada3c
+    - name: slime_Frame_1
       frameIndex: 1
       cellRect:
-        x: 0
+        x: 4
         y: 0
-        width: 32
-        height: 64
-      spriteId: fe97f5c674183a64c9727cfe9fec008e
-    - name: lava_Frame_2
-      frameIndex: 2
-      cellRect:
-        x: 0
-        y: 0
-        width: 32
-        height: 64
-      spriteId: 893282f108284f5409c1c96aad0da6c9
-    - name: lava_Frame_3
-      frameIndex: 3
-      cellRect:
-        x: 0
-        y: 0
-        width: 32
-        height: 64
-      spriteId: 81f4925c1317a4e43a526c130cb8f09b
-    - name: lava_Frame_4
-      frameIndex: 4
-      cellRect:
-        x: 0
-        y: 0
-        width: 32
-        height: 64
-      spriteId: f94ab17e43ce118448586f23cb0d541a
-    - name: lava_Frame_5
-      frameIndex: 5
-      cellRect:
-        x: 0
-        y: 0
-        width: 32
-        height: 64
-      spriteId: d94e265eaa90e244285756a0fe2da771
+        width: 24
+        height: 17
+      spriteId: c86d4758477289947b2f2b480cc7e32c
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -393,4 +261,4 @@ ScriptedImporter:
     androidETC2FallbackOverride: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 32, y: 64}
+  canvasSize: {x: 32, y: 32}
