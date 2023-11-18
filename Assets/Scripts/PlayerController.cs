@@ -6,7 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float jumpForce = 8.0f;
     [SerializeField] private LayerMask groundLayerMask;
-    [SerializeField] private float runningSpeed = 2.0f;
+    [SerializeField] private float runningSpeed = 4.0f;
+    [SerializeField] private ParticleSystem salpicadura;
 
     private Rigidbody2D _rigidbody2d;
     private const float _distanceRaycast = 1.0f;
@@ -30,13 +31,18 @@ public class PlayerController : MonoBehaviour
 	public bool canMove = true;
 	[SerializeField] private Vector2 speedBounce;
 
+    public Color defaultColor;
+    public Color newColor;
+
+    [SerializeField] private AudioSource _alarma;
+
     public void CollectHealth(int objectValue)
     {
         if (healthPlayer < 6)
         {
             healthPlayer += objectValue;
             UpdateGameCanvas.sharedInstance.AddHealth(healthPlayer - 1);
-            Debug.Log("Puntos de vida: " + healthPlayer);
+            //Debug.Log("Puntos de vida: " + healthPlayer);
         }
     }
 
@@ -44,13 +50,20 @@ public class PlayerController : MonoBehaviour
     {
         while (healthPlayer > 0)
         {
+            jumpForce = 8f;
+            this.GetComponent<SpriteRenderer>().color = defaultColor;
+            _alarma.Stop();
             UpdateGameCanvas.sharedInstance.TakeHealth(healthPlayer - 1);
             healthPlayer--;
-            Debug.Log("Puntos de vida restantes: " + healthPlayer);
+            //Debug.Log("Puntos de vida restantes: " + healthPlayer);
             yield return new WaitForSeconds(5f);
         }
 
-        yield return new WaitForSeconds(5f);
+        runningSpeed = 4f;
+        this.GetComponent<SpriteRenderer>().color = newColor;
+        _alarma.Play();
+        
+        yield return new WaitForSeconds(1f);
     }
     
     private void FixedUpdate()
@@ -157,6 +170,7 @@ public class PlayerController : MonoBehaviour
 
     public void KillPlayer()
     {
+        salpicadura.Play();
         GameManager.sharedInstance.GameOver();
         _animatorPlayer.SetBool(_animIDisAlive, false);
         SleepPlayer();

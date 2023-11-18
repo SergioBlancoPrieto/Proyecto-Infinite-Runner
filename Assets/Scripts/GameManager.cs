@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
     public void GameOver() //Se llama cuando el jugador muere
     {
         ChangeGameState(GameState.gameOver);
-		LevelGenerator.sharedInstance.RemoveAllTheBlocks();
+		//LevelGenerator.sharedInstance.RemoveAllTheBlocks();
 		UpdateGameOverCanvas.sharedInstance.SetScorePointsAndCoins();
 		PlayerController.sharedInstance.StopAllCoroutines();
     }
