@@ -48,22 +48,24 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator TirePlayer()
     {
-        while (healthPlayer > 0)
+        while (_animatorPlayer.GetBool(_animIDisAlive))
         {
-            jumpForce = 8f;
-            this.GetComponent<SpriteRenderer>().color = defaultColor;
-            _alarma.Stop();
-            UpdateGameCanvas.sharedInstance.TakeHealth(healthPlayer - 1);
-            healthPlayer--;
-            //Debug.Log("Puntos de vida restantes: " + healthPlayer);
-            yield return new WaitForSeconds(5f);
+            if (healthPlayer > 0)
+            {
+                jumpForce = 8f;
+                this.GetComponent<SpriteRenderer>().color = defaultColor;
+                _alarma.Stop();
+                yield return new WaitForSeconds(5f);
+                UpdateGameCanvas.sharedInstance.TakeHealth(healthPlayer - 1);
+                healthPlayer--;
+            } else 
+            {
+                yield return new WaitForSeconds(1f);
+                runningSpeed = 4f;
+                this.GetComponent<SpriteRenderer>().color = newColor;
+                _alarma.Play();
+            }
         }
-
-        runningSpeed = 4f;
-        this.GetComponent<SpriteRenderer>().color = newColor;
-        _alarma.Play();
-        
-        yield return new WaitForSeconds(1f);
     }
     
     private void FixedUpdate()
@@ -134,7 +136,6 @@ public class PlayerController : MonoBehaviour
                 {
                     _isRunning = true;
                     _animatorPlayer.SetBool(_animIDisRunning, _isRunning);
-                    TirePlayer();
                 }
                 else
                 {
