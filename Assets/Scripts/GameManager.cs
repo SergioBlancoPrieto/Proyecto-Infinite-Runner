@@ -65,6 +65,7 @@ public class GameManager : MonoBehaviour
 		LevelGenerator.sharedInstance.GenerateInitialBlocks();
 		UpdateGameCanvas.sharedInstance.SetRecordPoints();
 		UpdateGameCanvas.sharedInstance.SetCoinsNumber();
+		UpdateGameCanvas.sharedInstance.RestartHealth();
         PlayerController.sharedInstance.StartGame();
         ChangeGameState(GameState.inTheGame);
     }

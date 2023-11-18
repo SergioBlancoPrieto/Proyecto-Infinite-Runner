@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
         if (healthPlayer < 6)
         {
             healthPlayer += objectValue;
+            UpdateGameCanvas.sharedInstance.AddHealth(healthPlayer - 1);
             Debug.Log("Puntos de vida: " + healthPlayer);
         }
     }
@@ -43,6 +44,7 @@ public class PlayerController : MonoBehaviour
     {
         while (healthPlayer > 0)
         {
+            UpdateGameCanvas.sharedInstance.TakeHealth(healthPlayer - 1);
             healthPlayer--;
             Debug.Log("Puntos de vida restantes: " + healthPlayer);
             yield return new WaitForSeconds(5f);
@@ -157,7 +159,7 @@ public class PlayerController : MonoBehaviour
     {
         GameManager.sharedInstance.GameOver();
         _animatorPlayer.SetBool(_animIDisAlive, false);
-        Invoke("SleepPlayer", 1f);
+        SleepPlayer();
         if (PlayerPrefs.GetFloat("highscore", 0) < distanceTravelled)
         {
             PlayerPrefs.SetFloat("highscore", distanceTravelled);
@@ -167,7 +169,6 @@ public class PlayerController : MonoBehaviour
     public void SleepPlayer()
     {
         this.GetComponent<Rigidbody2D>().Sleep();
-        GameManager.sharedInstance.GameOver();
     }
 
     public float GetDistanceTravelled()
@@ -183,6 +184,7 @@ public class PlayerController : MonoBehaviour
         {
             if (healthPlayer > 0)
             {
+                UpdateGameCanvas.sharedInstance.TakeHealth(healthPlayer - 1);
                 healthPlayer--;
                 invulnerability = true;
                 Debug.Log("Puntos de vida restantes: " + healthPlayer);

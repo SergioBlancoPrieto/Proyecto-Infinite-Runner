@@ -12,6 +12,8 @@ public class UpdateGameCanvas : MonoBehaviour
     public TextMeshProUGUI scorePoints;
 	public TextMeshProUGUI recordPoints;
 
+	public GameObject[] vidas;
+
 	private void Awake() 
 	{
 		sharedInstance = this;
@@ -34,5 +36,23 @@ public class UpdateGameCanvas : MonoBehaviour
         {
             scorePoints.text = PlayerController.sharedInstance.GetDistanceTravelled().ToString("f0");
         }
+    }
+
+    public void AddHealth(int indice)
+    {
+	    vidas[indice].SetActive(true);
+    }
+
+    public void TakeHealth(int indice)
+    {
+	    vidas[indice].SetActive(false);
+    }
+
+    public void RestartHealth()
+    {
+	    for (int i = 0; i < vidas.Length; i++)
+	    {
+		    vidas[i].SetActive(true);
+	    }
     }
 }
