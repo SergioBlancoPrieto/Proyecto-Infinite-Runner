@@ -10,4 +10,7 @@ Es un infinite side-scroller.
 
 
 # Creditos
+- [Knigt](https://aamatniekss.itch.io/fantasy-knight-free-pixelart-animated-character)
+- [Skeleton](https://sanctumpixel.itch.io/sword-skeleton-pixel-art-character)
+- [Spike Trap](https://bdragon1727.itch.io/free-trap-platformer)
 - TODO: Meter autores de Assets usados. 
