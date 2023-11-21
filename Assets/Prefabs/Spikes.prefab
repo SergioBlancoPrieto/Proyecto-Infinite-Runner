@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 61017069127505041}
   - component: {fileID: 5701234248859517024}
   - component: {fileID: 8915501052646463517}
+  - component: {fileID: 6551317187545341194}
   m_Layer: 8
   m_Name: Spikes
   m_TagString: Untagged
@@ -75,8 +76,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: da5148589fd47ad48a8d87b1bcc086e0, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 2995974167878368031, guid: c829eb44ad44a254fbd8686495c81d01, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -119,9 +120,9 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.094659865}
-  m_Size: {x: 0.8427211, y: 1.4106803}
-  m_Direction: 0
+  m_Offset: {x: 0.004706938, y: 0.65008914}
+  m_Size: {x: 1.2191079, y: 0.4414615}
+  m_Direction: 1
 --- !u!114 &5701234248859517024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,7 +155,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 0
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 0.65558386
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -230,3 +231,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &6551317187545341194
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 180983637472925644}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7ba2a02c7657d5d4b90ef122978e5392, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

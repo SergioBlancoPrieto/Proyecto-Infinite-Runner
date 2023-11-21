@@ -5,6 +5,12 @@ using UnityEngine;
 
 public class DamageTrigger : MonoBehaviour
 {
+    Animator _animator;
+    
+    void Awake() {
+        _animator = GetComponent<Animator>();
+    }
+
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -12,6 +18,7 @@ public class DamageTrigger : MonoBehaviour
             other.gameObject.GetComponent<CombatPlayer>().DoBounce(transform.position);
             other.gameObject.GetComponent<PlayerController>().DamagePlayer();
             this.GetComponent<AudioSource>().Play();
+            TriggerAnimator();
         }
     }
     
@@ -22,6 +29,11 @@ public class DamageTrigger : MonoBehaviour
             other.gameObject.GetComponent<CombatPlayer>().DoBounce(transform.position);
             other.gameObject.GetComponent<PlayerController>().DamagePlayer();
             this.GetComponent<AudioSource>().Play();
+            TriggerAnimator();
         }
+    }
+
+    private void TriggerAnimator() {
+        _animator.SetTrigger("TrapTrigger");
     }
 }
