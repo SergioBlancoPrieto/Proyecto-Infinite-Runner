@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 2392723958102888004}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.8, y: 0, z: 0}
+  m_LocalPosition: {x: 0.25999975, y: -0.25999993, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -46,8 +46,9 @@ GameObject:
   - component: {fileID: 1709496917005215441}
   - component: {fileID: 5007644802490130127}
   - component: {fileID: 5867234131608118129}
+  - component: {fileID: -6319949795725075716}
   m_Layer: 7
-  m_Name: Goomba
+  m_Name: Skeleton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -110,13 +111,13 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 54c01d8f9f15ef24597ebd1d7429ef82, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 5741090345034158817, guid: 9b8958275d9d04f46b4c9b139c878887, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 7.49, y: 8.01}
+  m_Size: {x: 0.625, y: 1.2916666}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -154,8 +155,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0063107014, y: 0.025242627}
-  m_Size: {x: 1.1572244, y: 1.6524853}
+  m_Offset: {x: -0.08809589, y: -0.049678884}
+  m_Size: {x: 0.60504866, y: 1.8988065}
   m_Direction: 0
 --- !u!50 &5558300956294200062
 Rigidbody2D:
@@ -318,6 +319,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &-6319949795725075716
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5207037639520188931}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 363666690696270200, guid: 9b8958275d9d04f46b4c9b139c878887, type: 3}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8058418841111188509
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,7 +365,7 @@ Transform:
   m_GameObject: {fileID: 8058418841111188509}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.8, y: 0, z: 0}
+  m_LocalPosition: {x: 0.26, y: -0.26, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
