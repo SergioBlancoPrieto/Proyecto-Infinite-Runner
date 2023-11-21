@@ -34,6 +34,6 @@ public class DamageTrigger : MonoBehaviour
     }
 
     private void TriggerAnimator() {
-        _animator.SetTrigger("TrapTrigger");
+        _animator?.SetTrigger("TrapTrigger");
     }
 }
