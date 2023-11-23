@@ -119,9 +119,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Potion
+  - name: LifePotion_Frame_0
     originalName: 
-    pivot: {x: 0.5, y: 0.75}
+    pivot: {x: 0.5, y: -0.5625}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -130,7 +130,7 @@ ScriptedImporter:
       y: 4
       width: 12
       height: 16
-    spriteID: 188df8e66d7ff3d4fbb5dc61a9ff499e
+    spriteID: 7861936825aa33049800ae709db0ebd6
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -162,20 +162,20 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   asepriteLayers:
   - layerIndex: 0
-    guid: -1634091421
-    name: Potion
+    guid: -730254507
+    name: LifePotion
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Potion
+    - name: LifePotion
       frameIndex: 0
       cellRect:
         x: 10
         y: 9
         width: 12
         height: 16
-      spriteId: 188df8e66d7ff3d4fbb5dc61a9ff499e
+      spriteId: 7861936825aa33049800ae709db0ebd6
     linkedCells: []
     parentIndex: -1
   platformSettings:

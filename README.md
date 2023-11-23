@@ -18,5 +18,7 @@ BDragon1727:
 - [Spike Trap](https://bdragon1727.itch.io/free-trap-platformer)
 406pixel:
 - [Inspiración Splash Effect](https://www.unrealengine.com/marketplace/en-US/product/pixel-art-water-splash-pack)
+Enjl / Silly Scribbles:
+- [Paralax Background](https://enjl.itch.io/tileset-dark-halls)
 
 - TODO: Meter autores de Assets usados. 
