@@ -118,7 +118,7 @@ public class PlayerController : MonoBehaviour
     {
         _animatorPlayer.SetBool(_animIDisAlive, true);
          this.transform.position = startPosition;
-         healthPlayer = 7;
+         healthPlayer = 6;
          StartCoroutine("TirePlayer");
     }
 

@@ -62,6 +62,7 @@ public class GameManager : MonoBehaviour
     public void StartGame() //Se llama para iniciar la partida
     {
 		collectObject = 0;
+		LevelGenerator.sharedInstance.RemoveAllTheBlocks();
 		LevelGenerator.sharedInstance.GenerateInitialBlocks();
 		UpdateGameCanvas.sharedInstance.SetRecordPoints();
 		UpdateGameCanvas.sharedInstance.SetCoinsNumber();
