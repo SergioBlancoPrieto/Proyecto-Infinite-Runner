@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ad0f3e9152317c54b96eb45a27f4b34f
+guid: fb0c6b2b0d0064543be841329bea6d0a
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -75,7 +75,7 @@ ScriptedImporter:
     importHiddenLayers: 0
     layerImportMode: 1
     defaultPivotSpace: 0
-    defaultPivotAlignment: 0
+    defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
     spritePadding: 0
     generateModelPrefab: 1
@@ -87,7 +87,7 @@ ScriptedImporter:
     importHiddenLayers: 0
     layerImportMode: 1
     defaultPivotSpace: 0
-    defaultPivotAlignment: 0
+    defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
     spritePadding: 0
     generateModelPrefab: 1
@@ -95,7 +95,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638363618165232858
+  platformSettingsDirtyTick: 638364472430041618
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -119,9 +119,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Ground
+  - name: GroundNormal
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 1, y: 1, z: 1, w: 1}
     rect:
@@ -130,7 +130,7 @@ ScriptedImporter:
       y: 4
       width: 70
       height: 32
-    spriteID: 16acbd5773b8d9443b8cdf1a795e8160
+    spriteID: 37555847e066ce34da401c6236358b11
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -142,20 +142,20 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 565138765
-    name: Ground
+    guid: 1418182990
+    name: GroundNormal
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Ground
+    - name: GroundNormal
       frameIndex: 0
       cellRect:
         x: 0
         y: 0
         width: 70
         height: 32
-      spriteId: 16acbd5773b8d9443b8cdf1a795e8160
+      spriteId: 37555847e066ce34da401c6236358b11
     linkedCells: []
     parentIndex: -1
   platformSettings:
