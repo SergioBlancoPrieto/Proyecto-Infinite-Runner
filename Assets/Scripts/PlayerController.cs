@@ -197,6 +197,7 @@ public class PlayerController : MonoBehaviour
     {
         if (invulnerability == false)
         {
+            CinemachineCameraShake.sharedInstance.CameraShake(5, 5, 0.5f);
             if (healthPlayer > 0)
             {
                 UpdateGameCanvas.sharedInstance.TakeHealth(healthPlayer - 1);
@@ -211,5 +212,15 @@ public class PlayerController : MonoBehaviour
     public void DelayInvulnerability()
     {
         invulnerability = false;
+    }
+
+    public void Ralentizar()
+    {
+        runningSpeed = 2.0f;
+    }
+    
+    public void Acelerar()
+    {
+        runningSpeed = 4.0f;
     }
 }

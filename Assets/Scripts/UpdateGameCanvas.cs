@@ -13,6 +13,7 @@ public class UpdateGameCanvas : MonoBehaviour
 	public TextMeshProUGUI recordPoints;
 
 	public GameObject[] vidas;
+	public GameObject[] containers;
 
 	private void Awake() 
 	{
@@ -41,11 +42,13 @@ public class UpdateGameCanvas : MonoBehaviour
     public void AddHealth(int indice)
     {
 	    vidas[indice].SetActive(true);
+	    containers[indice].SetActive(false);
     }
 
     public void TakeHealth(int indice)
     {
 	    vidas[indice].SetActive(false);
+	    containers[indice].SetActive(true);
     }
 
     public void RestartHealth()
@@ -53,6 +56,7 @@ public class UpdateGameCanvas : MonoBehaviour
 	    for (int i = 0; i < vidas.Length; i++)
 	    {
 		    vidas[i].SetActive(true);
+		    containers[i].SetActive(false);
 	    }
     }
 }
