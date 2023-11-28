@@ -16,21 +16,20 @@ public class LevelGenerator : MonoBehaviour
     private int score;
 
 	public void GenerateInitialBlocks()
-	{
-		score = 0;
-	    this.usableLevelBlocks = new List<LevelBlock>(allTheLevelBlock);
-	    this.usableLevelBlocks.Remove(lethalBlock);
+    {
+        score = 0;
+        usableLevelBlocks = new List<LevelBlock>();
+        usableLevelBlocks.AddRange(allTheLevelBlock);
+	    usableLevelBlocks.Remove(lethalBlock);
+
 	    isGeneratingInitialBlocks = true;
-		if (currentLevelBlock.Count == 0) 
-		{
-			for (int i = 0; i<NUM_BLOCKS; i++) {
-                AddNewBlock();
-                if (isGeneratingInitialBlocks)
-                {
-	                isGeneratingInitialBlocks = false;
-                }
+		for (int i = 0; i<NUM_BLOCKS; i++) {
+            AddNewBlock();
+            if (isGeneratingInitialBlocks)
+            {
+	            isGeneratingInitialBlocks = false;
             }
-		}
+        }
 	}
 
 	public void RemoveAllTheBlocks() 
@@ -60,7 +59,7 @@ public class LevelGenerator : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
 
-		GenerateInitialBlocks();
+        GenerateInitialBlocks();
     }
     // Start is called before the first frame update
     void Start()

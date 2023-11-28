@@ -62,12 +62,12 @@ public class GameManager : MonoBehaviour
     public void StartGame() //Se llama para iniciar la partida
     {
 		collectObject = 0;
+        PlayerController.sharedInstance.StartGame();
 		LevelGenerator.sharedInstance.RemoveAllTheBlocks();
 		LevelGenerator.sharedInstance.GenerateInitialBlocks();
 		UpdateGameCanvas.sharedInstance.SetRecordPoints();
 		UpdateGameCanvas.sharedInstance.SetCoinsNumber();
 		UpdateGameCanvas.sharedInstance.RestartHealth();
-        PlayerController.sharedInstance.StartGame();
         ChangeGameState(GameState.inTheGame);
     }
     public void GameOver() //Se llama cuando el jugador muere

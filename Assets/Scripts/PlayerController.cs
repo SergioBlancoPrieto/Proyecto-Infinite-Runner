@@ -117,9 +117,10 @@ public class PlayerController : MonoBehaviour
     public void StartGame()
     {
         _animatorPlayer.SetBool(_animIDisAlive, true);
-         this.transform.position = startPosition;
-         healthPlayer = 6;
-         StartCoroutine("TirePlayer");
+        this.transform.position = startPosition;
+        distanceTravelled = 0;
+        healthPlayer = 6;
+        StartCoroutine("TirePlayer");
     }
 
     // Update is called once per frame

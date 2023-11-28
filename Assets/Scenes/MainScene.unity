@@ -2774,7 +2774,9 @@ MonoBehaviour:
   currentLevelBlock: []
   allTheLevelBlock:
   - {fileID: 155879534635172783, guid: e503c600f2bb6a147b3717f1723f9354, type: 3}
-  - {fileID: 4502347460139689013, guid: 8c86b4295bf589047bfcc85773e5c62b, type: 3}
+  - {fileID: 155879534635172783, guid: 8127a1a99c4962e4aa19878b42cf9c99, type: 3}
+  usableLevelBlocks: []
+  lethalBlock: {fileID: 155879534635172783, guid: 8127a1a99c4962e4aa19878b42cf9c99, type: 3}
   levelInitialPoint: {fileID: 8103545}
 --- !u!4 &1163756647
 Transform:
