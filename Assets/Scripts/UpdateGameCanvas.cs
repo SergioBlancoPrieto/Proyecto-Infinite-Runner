@@ -12,8 +12,10 @@ public class UpdateGameCanvas : MonoBehaviour
     public TextMeshProUGUI scorePoints;
 	public TextMeshProUGUI recordPoints;
 
-	public GameObject[] vidas;
-	public GameObject[] containers;
+	[SerializeField] private Sprite vidaLlena;
+	[SerializeField] private Sprite vidaVacia;
+
+	public Image[] vidas;
 
 	private void Awake() 
 	{
@@ -41,22 +43,28 @@ public class UpdateGameCanvas : MonoBehaviour
 
     public void AddHealth(int indice)
     {
-	    vidas[indice].SetActive(true);
-	    containers[indice].SetActive(false);
+	    ChangeContainer(indice, true);
     }
 
     public void TakeHealth(int indice)
     {
-	    vidas[indice].SetActive(false);
-	    containers[indice].SetActive(true);
+		ChangeContainer(indice, false);
     }
 
     public void RestartHealth()
     {
 	    for (int i = 0; i < vidas.Length; i++)
 	    {
-		    vidas[i].SetActive(true);
-		    containers[i].SetActive(false);
+			ChangeContainer(i, true);
 	    }
     }
+
+	private void ChangeContainer(int indice, bool estado) 
+	{
+		var spriteEstado = estado ? vidaLlena : vidaVacia;
+		if (indice >= 0 && indice < vidas.Length) 
+		{
+			vidas[indice].sprite = spriteEstado;
+		}
+	}
 }
