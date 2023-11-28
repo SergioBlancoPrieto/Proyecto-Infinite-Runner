@@ -53,7 +53,7 @@ Canvas:
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -473,7 +473,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 279977040288394136, guid: 8a909dcbbda2bea4eb98743fe23947ca, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 265
+      value: 258
       objectReference: {fileID: 0}
     - target: {fileID: 279977040288394136, guid: 8a909dcbbda2bea4eb98743fe23947ca, type: 3}
       propertyPath: m_SizeDelta.y
@@ -525,7 +525,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 279977040288394136, guid: 8a909dcbbda2bea4eb98743fe23947ca, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -100
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 279977040288394136, guid: 8a909dcbbda2bea4eb98743fe23947ca, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
