@@ -12,7 +12,6 @@ public class MenuPause : MonoBehaviour
     public void Pausa()
     {
         Time.timeScale = 0f;
-        _pauseButton.SetActive(false);
         _pauseMenu.SetActive(true);
         _gameCanvas.SetActive(false);
     }
@@ -20,14 +19,12 @@ public class MenuPause : MonoBehaviour
     public void Resume()
     {
         Time.timeScale = 1f;
-        _pauseButton.SetActive(true);
         _pauseMenu.SetActive(false);
         _gameCanvas.SetActive(true);
     }
 
     public void MainMenu()
     {
-        _pauseButton.SetActive(true);
         _gameCanvas.SetActive(true);
         _gameManager.gameObject.GetComponent<GameManager>().BackToMainMenu();
     }
