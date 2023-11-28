@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class LevelGenerator : MonoBehaviour
@@ -8,19 +9,28 @@ public class LevelGenerator : MonoBehaviour
     public static LevelGenerator sharedInstance;
     public List<LevelBlock> currentLevelBlock = new List<LevelBlock>();
     public List<LevelBlock> allTheLevelBlock = new List<LevelBlock>();
+    public List<LevelBlock> usableLevelBlocks;
+    public LevelBlock lethalBlock;
     public Transform levelInitialPoint;
+    private const int NUM_BLOCKS = 4, SCORE_TO_ADD = 100;
+    private int score;
 
 	public void GenerateInitialBlocks()
- 	{
+	{
+		score = 0;
+	    this.usableLevelBlocks = new List<LevelBlock>(allTheLevelBlock);
+	    this.usableLevelBlocks.Remove(lethalBlock);
+	    isGeneratingInitialBlocks = true;
 		if (currentLevelBlock.Count == 0) 
 		{
-			isGeneratingInitialBlocks = true;
-			for (int i = 0; i<4; i++) {
+			for (int i = 0; i<NUM_BLOCKS; i++) {
                 AddNewBlock();
+                if (isGeneratingInitialBlocks)
+                {
+	                isGeneratingInitialBlocks = false;
+                }
             }
-			isGeneratingInitialBlocks = false;
 		}
-		
 	}
 
 	public void RemoveAllTheBlocks() 
@@ -66,14 +76,21 @@ public class LevelGenerator : MonoBehaviour
 
     public void AddNewBlock()
     {
-        int randomIndex = Random.Range(0, allTheLevelBlock.Count);
+	    int score2 = (int) PlayerController.sharedInstance.distanceTravelled / SCORE_TO_ADD;
+	    if (score2 > score)
+	    {
+		    score = score2;
+		    usableLevelBlocks.Add(lethalBlock);
+	    }
+	    
+        int randomIndex = Random.Range(0, usableLevelBlocks.Count);
 
 		if (isGeneratingInitialBlocks)
 		{
 			randomIndex = 0;
 		}
 
-        LevelBlock block = (LevelBlock) Instantiate(allTheLevelBlock[randomIndex]);
+        LevelBlock block = (LevelBlock) Instantiate(usableLevelBlocks[randomIndex]);
 
         block.transform.SetParent(this.transform, false);
 
