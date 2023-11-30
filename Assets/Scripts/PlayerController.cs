@@ -130,7 +130,7 @@ public class PlayerController : MonoBehaviour
         {
             _animatorPlayer.SetBool(_animIDisFalling, _rigidbody2d.velocity.y < 0.5f);
             _animatorPlayer.SetBool(_animIDisGrounded, isOnTheFloor());
-            if (Input.GetButtonDown("Fire1")) 
+            if (Input.GetButtonDown("Fire1") /*|| Input.GetMouseButton(0) || Input.GetKey(KeyCode.Joystick1Button16)*/) 
             {
                 if (_isRunning == false)
                 {
