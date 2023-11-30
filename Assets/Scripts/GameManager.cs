@@ -132,4 +132,9 @@ public class GameManager : MonoBehaviour
     {
         return collectObject;
     }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 }
