@@ -70,6 +70,10 @@ public class PlayerController : MonoBehaviour
     
     private void FixedUpdate()
     {
+        if (Input.GetButtonDown("Pause"))
+        {
+            MenuPause.sharedInstance.Pausa();
+        }
         //Solo corre si estamos en el estado inTheGame
         if (GameManager.sharedInstance.currentGameState == GameState.inTheGame)
         {
@@ -130,7 +134,7 @@ public class PlayerController : MonoBehaviour
         {
             _animatorPlayer.SetBool(_animIDisFalling, _rigidbody2d.velocity.y < 0.5f);
             _animatorPlayer.SetBool(_animIDisGrounded, isOnTheFloor());
-            if (Input.GetButtonDown("Fire1") /*|| Input.GetMouseButton(0) || Input.GetKey(KeyCode.Joystick1Button16)*/) 
+            if (Input.GetButtonDown("Fire1")) 
             {
                 if (_isRunning == false)
                 {

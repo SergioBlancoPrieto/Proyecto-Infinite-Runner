@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public enum GameState
 {
@@ -24,6 +25,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject creditsCanvas;
 	[SerializeField] private GameObject _pauseButton;
 	[SerializeField] private GameObject _pauseMenu;
+	[SerializeField] private GameObject _playButton;
+	[SerializeField] private GameObject _backMainMenuButton;
+	[SerializeField] private GameObject _playAgainButton;
 
 	private int collectObject;
 
@@ -90,6 +94,7 @@ public class GameManager : MonoBehaviour
 			creditsCanvas.SetActive(false);
 			_pauseButton.SetActive(false);
 			_pauseMenu.SetActive(false);
+			EventSystem.current.SetSelectedGameObject(_playButton);
             //La escena de Unity deberá mostrar el menú principal
             currentGameState = GameState.menu;
         }
@@ -101,6 +106,7 @@ public class GameManager : MonoBehaviour
 			creditsCanvas.SetActive(false);
 			_pauseButton.SetActive(true);
 			_pauseMenu.SetActive(false);
+			EventSystem.current.SetSelectedGameObject(_pauseButton);
             //La escena de Unity deberá configurarse para mostrar el juego en si
             currentGameState = GameState.inTheGame;
             Time.timeScale = 1f;
@@ -113,6 +119,7 @@ public class GameManager : MonoBehaviour
 			creditsCanvas.SetActive(false);
 			_pauseButton.SetActive(false);
 			_pauseMenu.SetActive(false);
+			EventSystem.current.SetSelectedGameObject(_playAgainButton);
             //La escena de Unity deberá mostrar el menú de fin de partida
             currentGameState = GameState.gameOver;
         }
@@ -124,6 +131,7 @@ public class GameManager : MonoBehaviour
 	        creditsCanvas.SetActive(true);
 	        _pauseButton.SetActive(false);
 	        _pauseMenu.SetActive(false);
+	        EventSystem.current.SetSelectedGameObject(_backMainMenuButton);
 	        //La escena de Unity deberá mostrar el menú de creditos
 	        currentGameState = GameState.credits;
         }
