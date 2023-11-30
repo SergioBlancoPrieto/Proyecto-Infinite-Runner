@@ -7,7 +7,8 @@ public enum GameState
 {
     menu,
     inTheGame,
-    gameOver
+    gameOver,
+    credits
 }
 public class GameManager : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class GameManager : MonoBehaviour
 	public Canvas menuCanvas;
 	public Canvas gameCanvas;
 	public Canvas gameOverCanvas;
+	public Canvas creditsCanvas;
 	[SerializeField] private GameObject _pauseButton;
 	[SerializeField] private GameObject _pauseMenu;
 
@@ -41,17 +43,6 @@ public class GameManager : MonoBehaviour
     {
         ChangeGameState(GameState.menu);
     }
-
-    /*private void Update()
-    {
-        if (Input.GetButtonDown("Fire1"))
-        {
-            if (currentGameState != GameState.inTheGame)
-            {
-               StartGame(); 
-            }
-        }
-    }*/
 
 	public void CollectItem(int objectValue)
 	{
@@ -84,6 +75,11 @@ public class GameManager : MonoBehaviour
         ChangeGameState(GameState.menu);
     }
 
+    public void DisplayCreditsMenu()
+    {
+	    ChangeGameState(GameState.credits);
+    }
+
     void ChangeGameState(GameState newGameState)
     {
         if (newGameState == GameState.menu)
@@ -94,38 +90,55 @@ public class GameManager : MonoBehaviour
 			gameCanvas.GetComponent<AudioSource>().Stop();
 			gameOverCanvas.enabled = false;
 			gameOverCanvas.GetComponent<AudioSource>().Stop();
+			creditsCanvas.enabled = false;
 			_pauseButton.SetActive(false);
 			_pauseMenu.SetActive(false);
             //La escena de Unity deberá mostrar el menú principal
             currentGameState = GameState.menu;
         }
         else if (newGameState == GameState.inTheGame)
-            {
-				menuCanvas.enabled = false;
-				menuCanvas.GetComponent<AudioSource>().Stop();
-				gameCanvas.enabled = true;
-				gameCanvas.GetComponent<AudioSource>().Play();
-				gameOverCanvas.enabled = false;
-				gameOverCanvas.GetComponent<AudioSource>().Stop();
-				_pauseButton.SetActive(true);
-				_pauseMenu.SetActive(false);
-                //La escena de Unity deberá configurarse para mostrar el juego en si
-                currentGameState = GameState.inTheGame;
-                Time.timeScale = 1f;
-            }
-            else if (newGameState == GameState.gameOver)
-            {
-				menuCanvas.enabled = false;
-				menuCanvas.GetComponent<AudioSource>().Stop();
-				gameCanvas.enabled = false;
-				gameCanvas.GetComponent<AudioSource>().Stop();
-				gameOverCanvas.enabled = true;
-				gameOverCanvas.GetComponent<AudioSource>().Play();
-				_pauseButton.SetActive(false);
-				_pauseMenu.SetActive(false);
-                //La escena de Unity deberá mostrar el menú de fin de partida
-                currentGameState = GameState.gameOver;
-            }
+        {
+			menuCanvas.enabled = false;
+			menuCanvas.GetComponent<AudioSource>().Stop();
+			gameCanvas.enabled = true;
+			gameCanvas.GetComponent<AudioSource>().Play();
+			gameOverCanvas.enabled = false;
+			gameOverCanvas.GetComponent<AudioSource>().Stop();
+			creditsCanvas.enabled = false;
+			_pauseButton.SetActive(true);
+			_pauseMenu.SetActive(false);
+            //La escena de Unity deberá configurarse para mostrar el juego en si
+            currentGameState = GameState.inTheGame;
+            Time.timeScale = 1f;
+        }
+        else if (newGameState == GameState.gameOver)
+        {
+			menuCanvas.enabled = false;
+			menuCanvas.GetComponent<AudioSource>().Stop();
+			gameCanvas.enabled = false;
+			gameCanvas.GetComponent<AudioSource>().Stop();
+			gameOverCanvas.enabled = true;
+			gameOverCanvas.GetComponent<AudioSource>().Play();
+			creditsCanvas.enabled = false;
+			_pauseButton.SetActive(false);
+			_pauseMenu.SetActive(false);
+            //La escena de Unity deberá mostrar el menú de fin de partida
+            currentGameState = GameState.gameOver;
+        }
+        else if (newGameState == GameState.credits)
+        {
+	        menuCanvas.enabled = false;
+	        menuCanvas.GetComponent<AudioSource>().Play();
+	        gameCanvas.enabled = false;
+	        gameCanvas.GetComponent<AudioSource>().Stop();
+	        gameOverCanvas.enabled = false;
+	        gameOverCanvas.GetComponent<AudioSource>().Stop();
+	        creditsCanvas.enabled = true;
+	        _pauseButton.SetActive(false);
+	        _pauseMenu.SetActive(false);
+	        //La escena de Unity deberá mostrar el menú de creditos
+	        currentGameState = GameState.credits;
+        }
     }
 
 	public int GetCollectedCoins()
