@@ -599,10 +599,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2109004691}
     m_Modifications:
-    - target: {fileID: 142716993731234945, guid: 38330fd77613b4a438ff364b1c602964, type: 3}
-      propertyPath: m_text
-      value: Resume
-      objectReference: {fileID: 0}
     - target: {fileID: 107632886333852484, guid: af66ee198280e80449e1570b073d6304, type: 3}
       propertyPath: m_Name
       value: ButtonMainMenu
@@ -750,6 +746,10 @@ PrefabInstance:
     - target: {fileID: 6546683312950651150, guid: af66ee198280e80449e1570b073d6304, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 142716993731234945, guid: 38330fd77613b4a438ff364b1c602964, type: 3}
+      propertyPath: m_text
+      value: Resume
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1293,10 +1293,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 262978025}
     m_Modifications:
-    - target: {fileID: 142716993731234945, guid: 38330fd77613b4a438ff364b1c602964, type: 3}
-      propertyPath: m_text
-      value: Main Menu
-      objectReference: {fileID: 0}
     - target: {fileID: 107632886333852484, guid: af66ee198280e80449e1570b073d6304, type: 3}
       propertyPath: m_Name
       value: ButtonMainMenu
@@ -1427,6 +1423,10 @@ PrefabInstance:
       propertyPath: m_fontColor32.rgba
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 142716993731234945, guid: 38330fd77613b4a438ff364b1c602964, type: 3}
+      propertyPath: m_text
+      value: Main Menu
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1440,10 +1440,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 262978025}
     m_Modifications:
-    - target: {fileID: 142716993731234945, guid: 38330fd77613b4a438ff364b1c602964, type: 3}
-      propertyPath: m_text
-      value: Resume
-      objectReference: {fileID: 0}
     - target: {fileID: 107632886333852484, guid: af66ee198280e80449e1570b073d6304, type: 3}
       propertyPath: m_Name
       value: ButtonResume
@@ -1575,6 +1571,10 @@ PrefabInstance:
     - target: {fileID: 6546683312950651150, guid: af66ee198280e80449e1570b073d6304, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 142716993731234945, guid: 38330fd77613b4a438ff364b1c602964, type: 3}
+      propertyPath: m_text
+      value: Resume
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3171,10 +3171,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2109004691}
     m_Modifications:
-    - target: {fileID: 142716993731234945, guid: 38330fd77613b4a438ff364b1c602964, type: 3}
-      propertyPath: m_text
-      value: Resume
-      objectReference: {fileID: 0}
     - target: {fileID: 107632886333852484, guid: af66ee198280e80449e1570b073d6304, type: 3}
       propertyPath: m_Name
       value: ButtonPlayAgain
@@ -3326,6 +3322,10 @@ PrefabInstance:
     - target: {fileID: 6546683312950651150, guid: af66ee198280e80449e1570b073d6304, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 142716993731234945, guid: 38330fd77613b4a438ff364b1c602964, type: 3}
+      propertyPath: m_text
+      value: Resume
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

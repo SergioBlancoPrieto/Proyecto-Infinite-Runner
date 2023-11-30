@@ -120,7 +120,6 @@ public class PlayerController : MonoBehaviour
         this.transform.position = startPosition;
         distanceTravelled = 0;
         healthPlayer = 6;
-        StartCoroutine("TirePlayer");
     }
 
     // Update is called once per frame
@@ -137,6 +136,7 @@ public class PlayerController : MonoBehaviour
                 {
                     _isRunning = true;
                     _animatorPlayer.SetBool(_animIDisRunning, _isRunning);
+                    StartCoroutine("TirePlayer");
                 }
                 else
                 {
