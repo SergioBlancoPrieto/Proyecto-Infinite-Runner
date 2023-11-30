@@ -12,12 +12,14 @@ public class LevelGenerator : MonoBehaviour
     public List<LevelBlock> usableLevelBlocks;
     public LevelBlock lethalBlock;
     public Transform levelInitialPoint;
-    private const int NUM_BLOCKS = 4, SCORE_TO_ADD = 100;
+    private const int NUM_BLOCKS = 4, SCORE_TO_ADD = 100, SCORE_TO_SPAWN = 200;
     private int score;
+    private int potions;
 
 	public void GenerateInitialBlocks()
     {
         score = 0;
+        potions = 0;
         usableLevelBlocks = new List<LevelBlock>();
         usableLevelBlocks.AddRange(allTheLevelBlock);
 	    usableLevelBlocks.Remove(lethalBlock);
@@ -61,17 +63,6 @@ public class LevelGenerator : MonoBehaviour
 
         GenerateInitialBlocks();
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void AddNewBlock()
     {
@@ -82,15 +73,24 @@ public class LevelGenerator : MonoBehaviour
 		    usableLevelBlocks.Add(lethalBlock);
 	    }
 	    
+	    
         int randomIndex = Random.Range(0, usableLevelBlocks.Count);
 
 		if (isGeneratingInitialBlocks)
 		{
 			randomIndex = 0;
 		}
-
+		
+		
         LevelBlock block = (LevelBlock) Instantiate(usableLevelBlocks[randomIndex]);
 
+        int totalPotions = (int) PlayerController.sharedInstance.distanceTravelled / SCORE_TO_SPAWN;
+        if (totalPotions > potions)
+        {
+	        potions = totalPotions;
+	        block._potion.SetActive(true);
+        }
+        
         block.transform.SetParent(this.transform, false);
 
         Vector3 blockPosition = Vector3.zero;
