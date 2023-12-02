@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7165158985317116801}
   - component: {fileID: 2477151911586371380}
+  - component: {fileID: 152719066825187496}
   m_Layer: 0
   m_Name: DestroyTrigger
   m_TagString: Untagged
@@ -61,10 +62,10 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 3.4531298}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -75,5 +76,17 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 19.745558}
+  m_Size: {x: 2, y: 40}
   m_EdgeRadius: 0
+--- !u!114 &152719066825187496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6710927744549303542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61137125cb26d1e40a4e5db347be0c2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

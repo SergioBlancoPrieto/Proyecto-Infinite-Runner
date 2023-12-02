@@ -208,7 +208,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: -1864616375, guid: c1b04385faf74ee43b3a39bdcbe1c841, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -294,15 +294,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99a511944886bb74f92e78db290cc8c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 8
+  jumpForce: 9
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 64
   runningSpeed: 4
+  slowedSpeed: 2
   salpicadura: {fileID: 5191231169247002624}
   distanceTravelled: 0
   canMove: 1
-  speedBounce: {x: 2, y: 5}
+  speedBounce: {x: 3, y: 5}
   defaultColor: {r: 1, g: 1, b: 1, a: 1}
   newColor: {r: 1, g: 0, b: 0, a: 1}
   _alarma: {fileID: 6061570030629757388}
