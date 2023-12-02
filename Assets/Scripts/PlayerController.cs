@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpForce = 8.0f;
     [SerializeField] private LayerMask groundLayerMask;
     [SerializeField] private float runningSpeed = 4.0f;
+    [SerializeField] private float slowedSpeed = 4.0f;
     [SerializeField] private ParticleSystem salpicadura;
 
     private Rigidbody2D _rigidbody2d;
@@ -14,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private Animator _animatorPlayer;
     private bool _isRunning = false;
     private Vector3 startPosition;
+    private float _currentRunningSpeed, _currentJumpForce;
 
     private readonly int _animIDisAlive = Animator.StringToHash("isAlive");
     private readonly int _animIDisHited = Animator.StringToHash("isHited");
@@ -52,7 +54,7 @@ public class PlayerController : MonoBehaviour
         {
             if (healthPlayer > 0)
             {
-                jumpForce = 8f;
+                _currentJumpForce = jumpForce;
                 this.GetComponent<SpriteRenderer>().color = defaultColor;
                 _alarma.Stop();
                 yield return new WaitForSeconds(5f);
@@ -61,7 +63,7 @@ public class PlayerController : MonoBehaviour
             } else 
             {
                 yield return new WaitForSeconds(1f);
-                runningSpeed = 4f;
+                RestaurarSpeed();
                 this.GetComponent<SpriteRenderer>().color = newColor;
                 _alarma.Play();
             }
@@ -81,10 +83,7 @@ public class PlayerController : MonoBehaviour
 			{
 				if (_isRunning)
                 {
-                    if (_rigidbody2d.velocity.x < runningSpeed)
-                    {
-                        _rigidbody2d.velocity = new Vector2(runningSpeed, _rigidbody2d.velocity.y);
-                    }
+                    _rigidbody2d.velocity = new Vector2(_currentRunningSpeed, _rigidbody2d.velocity.y);
                 }
 			}
         }
@@ -159,7 +158,7 @@ public class PlayerController : MonoBehaviour
         if (GameManager.sharedInstance.currentGameState == GameState.inTheGame)
         {
             _audioSource.Play();
-            _rigidbody2d.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            _rigidbody2d.AddForce(Vector2.up * _currentJumpForce, ForceMode2D.Impulse);
         }
     }
 
@@ -219,13 +218,13 @@ public class PlayerController : MonoBehaviour
         invulnerability = false;
     }
 
-    public void Ralentizar()
+    public void RalentizarSpeed()
     {
-        runningSpeed = 2.0f;
+        _currentRunningSpeed = slowedSpeed;
     }
     
-    public void Acelerar()
+    public void RestaurarSpeed()
     {
-        runningSpeed = 4.0f;
+        _currentRunningSpeed = runningSpeed;
     }
 }

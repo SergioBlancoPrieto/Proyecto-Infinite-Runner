@@ -88,7 +88,7 @@ public class LevelGenerator : MonoBehaviour
         if (totalPotions > potions)
         {
 	        potions = totalPotions;
-	        block._potion.SetActive(true);
+            block.SpawPotion();
         }
         
         block.transform.SetParent(this.transform, false);

@@ -11,12 +11,12 @@ public class FloorController : MonoBehaviour
         {
             if (other.gameObject.CompareTag("Player"))
             {
-                PlayerController.sharedInstance.Ralentizar();
+                PlayerController.sharedInstance.RalentizarSpeed();
             }
         }
         else
         {
-            PlayerController.sharedInstance.Acelerar();
+            PlayerController.sharedInstance.RestaurarSpeed();
         }
     }
 }

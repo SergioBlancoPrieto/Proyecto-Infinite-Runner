@@ -5,5 +5,20 @@ using UnityEngine;
 public class LevelBlock : MonoBehaviour
 {
     public Transform exitPoint;
-    [SerializeField] public GameObject _potion;
+    [SerializeField] private GameObject _potion;
+
+    private void OnEnable()
+    {
+        _potion?.SetActive(false);
+    }
+
+    private void OnDisable()
+    {
+        _potion?.SetActive(false);
+    }
+
+    public void SpawPotion()
+    {
+        _potion?.SetActive(true);
+    }
 }
