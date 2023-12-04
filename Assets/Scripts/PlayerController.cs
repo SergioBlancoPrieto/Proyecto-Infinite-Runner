@@ -6,14 +6,16 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float jumpForce = 8.0f;
     [SerializeField] private LayerMask groundLayerMask;
+    [SerializeField] private Transform floorController;
+    [SerializeField] private Vector3 boxDimensions;
     [SerializeField] private float runningSpeed = 4.0f;
     [SerializeField] private float slowedSpeed = 4.0f;
     [SerializeField] private ParticleSystem salpicadura;
 
     private Rigidbody2D _rigidbody2d;
-    private const float _distanceRaycast = 1.0f;
+    private const float _distanceRaycast = 0f;
     private Animator _animatorPlayer;
-    private bool _isRunning = false;
+    private bool _isRunning = false, saltoDoble = false, buff = false, _isOnTheFloor, _jump;
     private Vector3 startPosition;
     private float _currentRunningSpeed, _currentJumpForce;
 
@@ -24,9 +26,9 @@ public class PlayerController : MonoBehaviour
     private readonly int _animIDisFalling = Animator.StringToHash("isFalling");
 
     public static PlayerController sharedInstance;
-    public float distanceTravelled = 0;
+    public float distanceTravelled = 0, saltosExtra = 1, totalSaltos = 1;
     private int healthPlayer;
-    private bool invulnerability;
+    private bool invulnerability = false;
 
     private AudioSource _audioSource;
 
@@ -37,6 +39,7 @@ public class PlayerController : MonoBehaviour
     public Color newColor;
 
     [SerializeField] private AudioSource _alarma;
+    [SerializeField] private AudioSource _musicaBuff;
 
     public void CollectHealth(int objectValue)
     {
@@ -44,7 +47,6 @@ public class PlayerController : MonoBehaviour
         {
             healthPlayer += objectValue;
             UpdateGameCanvas.sharedInstance.AddHealth(healthPlayer - 1);
-            //Debug.Log("Puntos de vida: " + healthPlayer);
         }
     }
 
@@ -86,6 +88,26 @@ public class PlayerController : MonoBehaviour
                     _rigidbody2d.velocity = new Vector2(_currentRunningSpeed, _rigidbody2d.velocity.y);
                 }
 			}
+        }
+        Movement();
+    }
+
+    private void Movement()
+    {
+        if (_jump)
+        {
+            if (_isOnTheFloor)
+            {
+                Jump();
+            }
+            else
+            {
+                if (saltoDoble && saltosExtra > 0)
+                {
+                    Jump();
+                    saltosExtra--;
+                }
+            }
         }
     }
 
@@ -135,6 +157,10 @@ public class PlayerController : MonoBehaviour
             _animatorPlayer.SetBool(_animIDisGrounded, isOnTheFloor());
             if (Input.GetButtonDown("Fire1")) 
             {
+                if (_isOnTheFloor)
+                {
+                    saltosExtra = totalSaltos;
+                }
                 if (_isRunning == false)
                 {
                     _isRunning = true;
@@ -143,9 +169,9 @@ public class PlayerController : MonoBehaviour
                 }
                 else
                 {
-                    if (isOnTheFloor())
+                    if (_isOnTheFloor || saltoDoble)
                     {
-                        Jump();
+                        _jump = true;
                     }
                 }
             
@@ -158,23 +184,22 @@ public class PlayerController : MonoBehaviour
         if (GameManager.sharedInstance.currentGameState == GameState.inTheGame)
         {
             _audioSource.Play();
-            _rigidbody2d.AddForce(Vector2.up * _currentJumpForce, ForceMode2D.Impulse);
+            _rigidbody2d.velocity = new Vector2(0f, _currentJumpForce);
+            _jump = false;
         }
     }
 
     bool isOnTheFloor()
     {
-        bool isOnTheFloor = false;
-        if (Physics2D.Raycast(this.transform.position, Vector2.down, _distanceRaycast, groundLayerMask.value))
-        {
-            isOnTheFloor = true;
-        }
+        _isOnTheFloor = Physics2D.OverlapBox(floorController.position, boxDimensions, 0f, groundLayerMask);
 
-        return isOnTheFloor;
+        return _isOnTheFloor;
     }
 
     public void KillPlayer()
     {
+        _musicaBuff.Stop();
+        _alarma.Stop();
         salpicadura.Play();
         GameManager.sharedInstance.GameOver();
         _animatorPlayer.SetBool(_animIDisAlive, false);
@@ -207,7 +232,6 @@ public class PlayerController : MonoBehaviour
                 UpdateGameCanvas.sharedInstance.TakeHealth(healthPlayer - 1);
                 healthPlayer--;
                 invulnerability = true;
-                Debug.Log("Puntos de vida restantes: " + healthPlayer);
                 Invoke("DelayInvulnerability", 1.5f);
             }
         }
@@ -226,5 +250,58 @@ public class PlayerController : MonoBehaviour
     public void RestaurarSpeed()
     {
         _currentRunningSpeed = runningSpeed;
+    }
+
+    public void BuffPlayer()
+    {
+        StartCoroutine("DoBuff");
+    }
+
+    IEnumerator DoBuff()
+    {
+        var puntosBufoCogido = this.distanceTravelled;
+        buff = true;
+        while (this.distanceTravelled < (puntosBufoCogido + 50))
+        {
+            invulnerability = true;
+            saltoDoble = true;
+            _musicaBuff.Play();
+            StartCoroutine(ChangeColor(puntosBufoCogido));
+            yield return new WaitForSeconds(5f);
+        }
+        buff = false;
+        invulnerability = false;
+        saltoDoble = false;
+        _musicaBuff.Stop();
+    }
+
+    IEnumerator ChangeColor(float puntos)
+    {
+        while (buff) 
+        {
+            this.GetComponent<SpriteRenderer>().color = Random.ColorHSV(0f, 1f, 1f, 1f, 1f, 1f);
+            yield return new WaitForSeconds(1f);
+        }
+        this.GetComponent<SpriteRenderer>().color = defaultColor;
+    }
+
+    public bool IsInvulnerable()
+    {
+        return invulnerability;
+    }
+
+    public IEnumerator DesactivarCollision()
+    {
+        Physics2D.IgnoreLayerCollision(3, 7, true);
+        Physics2D.IgnoreLayerCollision(3, 8, true);
+        yield return new WaitForSeconds(5f);
+        Physics2D.IgnoreLayerCollision(3, 7, false);
+        Physics2D.IgnoreLayerCollision(3, 8, false);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(floorController.position, boxDimensions);
     }
 }

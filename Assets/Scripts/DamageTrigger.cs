@@ -16,9 +16,12 @@ public class DamageTrigger : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             other.gameObject.GetComponent<CombatPlayer>().DoBounce(transform.position);
-            other.gameObject.GetComponent<PlayerController>().DamagePlayer();
-            this.GetComponent<AudioSource>().Play();
-            TriggerAnimator();
+            if (!other.gameObject.GetComponent<PlayerController>().IsInvulnerable())
+            {
+                other.gameObject.GetComponent<PlayerController>().DamagePlayer();
+                this.GetComponent<AudioSource>().Play();
+                TriggerAnimator();
+            }
         }
     }
     
@@ -27,9 +30,12 @@ public class DamageTrigger : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             other.gameObject.GetComponent<CombatPlayer>().DoBounce(transform.position);
-            other.gameObject.GetComponent<PlayerController>().DamagePlayer();
-            this.GetComponent<AudioSource>().Play();
-            TriggerAnimator();
+            if (!other.gameObject.GetComponent<PlayerController>().IsInvulnerable())
+            {
+                other.gameObject.GetComponent<PlayerController>().DamagePlayer();
+                this.GetComponent<AudioSource>().Play();
+                TriggerAnimator();
+            }
         }
     }
 

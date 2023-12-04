@@ -90,7 +90,7 @@ public class LevelGenerator : MonoBehaviour
 	        potions = totalPotions;
             block.SpawPotion();
         }
-        
+
         block.transform.SetParent(this.transform, false);
 
         Vector3 blockPosition = Vector3.zero;

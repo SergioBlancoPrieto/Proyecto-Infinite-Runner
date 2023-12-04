@@ -106,8 +106,6 @@ public class GameManager : MonoBehaviour
 			creditsCanvas.SetActive(false);
 			_pauseButton.SetActive(true);
 			_pauseMenu.SetActive(false);
-			EventSystem.current.SetSelectedGameObject(_pauseButton);
-            //La escena de Unity deberá configurarse para mostrar el juego en si
             currentGameState = GameState.inTheGame;
             Time.timeScale = 1f;
         }

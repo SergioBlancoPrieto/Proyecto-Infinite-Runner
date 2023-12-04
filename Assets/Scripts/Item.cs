@@ -5,22 +5,20 @@ using UnityEngine;
 public enum ItemType
 {
 	health,
-	money
+	money,
+	mana
 }
 
 public class Item : MonoBehaviour
 {
 	public ItemType type;
 	public AudioClip itemSound;
-	private bool isCollected;
 	public int value;
 
 	void Show()
 	{
 		GetComponent<SpriteRenderer>().enabled = true;
-		GetComponent<CircleCollider2D>().enabled = true;
-		isCollected = false;
-        
+		GetComponent<CircleCollider2D>().enabled = true;     
 	}
 
 	void Hide()
@@ -31,7 +29,6 @@ public class Item : MonoBehaviour
 
 	void Collect()
 	{
-		isCollected = true;
 		Hide();
 		//GameManager.sharedInstance.CollectItem(value);
 		AudioSource.PlayClipAtPoint(itemSound, gameObject.transform.position, 1f);
@@ -46,6 +43,11 @@ public class Item : MonoBehaviour
 			case ItemType.health:
 			{
 				PlayerController.sharedInstance.CollectHealth(value);
+				break;
+			}
+			case ItemType.mana:
+			{
+				PlayerController.sharedInstance.BuffPlayer();
 				break;
 			}
 		}

@@ -16,10 +16,13 @@ public class CombatPlayer : MonoBehaviour
 
     public void DoBounce(Vector2 position)
     {
-        _animator.SetBool("isHited", true);
-        StartCoroutine(LostControl());
-        _playerController.Bounce(position);
-        
+        if (!_playerController.IsInvulnerable())
+        {
+            _animator.SetBool("isHited", true);
+            StartCoroutine(LostControl());
+            _playerController.Bounce(position);
+        }
+        StartCoroutine(_playerController.DesactivarCollision());
     }
 
     private IEnumerator LostControl()
