@@ -20,5 +20,7 @@ BDragon1727:
 - [Inspiración Splash Effect](https://www.unrealengine.com/marketplace/en-US/product/pixel-art-water-splash-pack)
 Enjl / Silly Scribbles:
 - [Paralax Background](https://enjl.itch.io/tileset-dark-halls)
+David Gaviria
+- [Dungeon Props](https://incolgames.itch.io/dungeon-platformer-tile-set-pixel-art)
 
 - TODO: Meter autores de Assets usados. 

@@ -127,6 +127,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4542181149370315410}
     m_Modifications:
+    - target: {fileID: 2477151911586371380, guid: 9407cf7ffa7d0934fbf7ea308bc72471, type: 3}
+      propertyPath: m_Size.y
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 6710927744549303542, guid: 9407cf7ffa7d0934fbf7ea308bc72471, type: 3}
       propertyPath: m_Name
       value: DestroyTrigger
@@ -137,7 +141,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7165158985317116801, guid: 9407cf7ffa7d0934fbf7ea308bc72471, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7165158985317116801, guid: 9407cf7ffa7d0934fbf7ea308bc72471, type: 3}
       propertyPath: m_LocalPosition.z
