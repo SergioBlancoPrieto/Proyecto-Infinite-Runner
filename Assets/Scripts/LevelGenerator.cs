@@ -12,7 +12,7 @@ public class LevelGenerator : MonoBehaviour
     public List<LevelBlock> usableLevelBlocks;
     public LevelBlock lethalBlock;
     public Transform levelInitialPoint;
-    private const int NUM_BLOCKS = 4, SCORE_TO_ADD = 100, SCORE_TO_SPAWN = 200;
+    private const int NUM_BLOCKS = 3, SCORE_TO_ADD = 100, SCORE_TO_SPAWN = 200;
     private int score;
     private int potions;
 
