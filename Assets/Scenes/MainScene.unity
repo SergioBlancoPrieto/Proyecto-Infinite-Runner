@@ -3422,8 +3422,9 @@ MonoBehaviour:
   - {fileID: 3804447869833760865, guid: cad8d6a14184ed64daa97f86180976bf, type: 3}
   - {fileID: 8827937000372500525, guid: 2d47a78d206fe6c49b272f0bf0384efe, type: 3}
   - {fileID: 3559816863237202112, guid: 42a63ce2ee5075f4c88fea9ba795a9ab, type: 3}
+  - {fileID: 6633060299049230890, guid: 4b794e15d4038aa40a5a59b5d2f3e8f7, type: 3}
   usableLevelBlocks: []
-  lethalBlock: {fileID: 5472654444568942039, guid: cb002ae858d17a14bab072c277e25b49, type: 3}
+  lethalBlock: {fileID: 6633060299049230890, guid: 4b794e15d4038aa40a5a59b5d2f3e8f7, type: 3}
   levelInitialPoint: {fileID: 8103545}
 --- !u!4 &1163756647
 Transform:
@@ -4963,7 +4964,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: 0
+  m_Spacing: 25
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 1

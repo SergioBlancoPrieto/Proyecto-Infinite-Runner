@@ -299,7 +299,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   runningSpeed: 4
-  slowedSpeed: 2
+  slowedSpeed: 2.5
   salpicadura: {fileID: 5191231169247002624}
   distanceTravelled: 0
   canMove: 1
