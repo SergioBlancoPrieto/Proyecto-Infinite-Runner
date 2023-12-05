@@ -68,9 +68,8 @@ public class GameManager : MonoBehaviour
     public void GameOver() //Se llama cuando el jugador muere
     {
         ChangeGameState(GameState.gameOver);
-		//LevelGenerator.sharedInstance.RemoveAllTheBlocks();
-		UpdateGameOverCanvas.sharedInstance.SetScorePointsAndCoins();
-		PlayerController.sharedInstance.StopAllCoroutines();
+        UpdateGameOverCanvas.sharedInstance.SetScorePointsAndCoins();
+        PlayerController.sharedInstance.StopAllCoroutines();
     }
     
     //lo llamamos cuando el jugador decide finalizar y volver a menú principal
@@ -111,13 +110,7 @@ public class GameManager : MonoBehaviour
         }
         else if (newGameState == GameState.gameOver)
         {
-			menuCanvas.SetActive(false);
-			gameCanvas.SetActive(false);
-			gameOverCanvas.SetActive(true);
-			creditsCanvas.SetActive(false);
-			_pauseButton.SetActive(false);
-			_pauseMenu.SetActive(false);
-			EventSystem.current.SetSelectedGameObject(_playAgainButton);
+            StartCoroutine("WaitGameOver");
             //La escena de Unity deberá mostrar el menú de fin de partida
             currentGameState = GameState.gameOver;
         }
@@ -143,5 +136,17 @@ public class GameManager : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit();
+    }
+
+    IEnumerator WaitGameOver()
+    {
+        yield return new WaitForSeconds(0.5f);
+        menuCanvas.SetActive(false);
+        gameCanvas.SetActive(false);
+        gameOverCanvas.SetActive(true);
+        creditsCanvas.SetActive(false);
+        _pauseButton.SetActive(false);
+        _pauseMenu.SetActive(false);
+        EventSystem.current.SetSelectedGameObject(_playAgainButton);
     }
 }

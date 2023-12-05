@@ -280,7 +280,7 @@ public class PlayerController : MonoBehaviour
         while (buff) 
         {
             this.GetComponent<SpriteRenderer>().color = Random.ColorHSV(0f, 1f, 1f, 1f, 1f, 1f);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.5f);
         }
         this.GetComponent<SpriteRenderer>().color = defaultColor;
     }
