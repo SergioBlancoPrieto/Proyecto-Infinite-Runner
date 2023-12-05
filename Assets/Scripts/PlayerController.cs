@@ -198,6 +198,8 @@ public class PlayerController : MonoBehaviour
 
     public void KillPlayer()
     {
+        _isRunning = false;
+        _animatorPlayer.SetBool(_animIDisRunning, _isRunning);
         _musicaBuff.Stop();
         _alarma.Stop();
         salpicadura.Play();
