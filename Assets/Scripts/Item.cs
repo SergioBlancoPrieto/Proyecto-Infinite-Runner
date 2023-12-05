@@ -18,13 +18,13 @@ public class Item : MonoBehaviour
 	void Show()
 	{
 		GetComponent<SpriteRenderer>().enabled = true;
-		GetComponent<CircleCollider2D>().enabled = true;     
+		GetComponent<Collider2D>().enabled = true;     
 	}
 
 	void Hide()
 	{
 		GetComponent<SpriteRenderer>().enabled = false;
-		GetComponent<CircleCollider2D>().enabled = false;
+		GetComponent<Collider2D>().enabled = false;
 	}
 
 	void Collect()
